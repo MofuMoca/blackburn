@@ -2,8 +2,12 @@
   font-family: "Raleway", Helvetica, Arial, sans-serif
 }
 
+body {
+  color: rgb(14, 14, 14);
+}
+
 a {
-  color: #3b8bba;
+  color: #ff7f50;
   text-decoration: none;
 }
 a:hover,
@@ -11,7 +15,7 @@ a:focus {
   text-decoration: underline;
 }
 a:visited {
-  color: #265778;
+  color: #ff7f50;
 }
 
 .small-print {
@@ -86,4 +90,12 @@ i {
 
 .pagination a {
   color: #265778;
+}
+
+code {
+  background: #d5d5d5;
+  padding: 1px 0.4rem;
+  border-radius: 2px;
+  margin: 0 0.2rem;
+  border: none;
 }
