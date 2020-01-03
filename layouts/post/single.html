@@ -7,7 +7,10 @@
 <div class="content">
 
   {{ partial "post_meta.html" . }}
-
+  <aside>
+      <h3>目錄</h3>
+      {{ .TableOfContents }}
+</aside>
   {{ .Content }}
   
   {{ partial "likecoin.html" . }}
