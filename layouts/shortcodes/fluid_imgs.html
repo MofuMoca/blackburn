@@ -11,13 +11,14 @@
     <div style="padding: 0 .2em">
     {{ $suffix := index $items 1}}
     {{if (strings.HasSuffix  $suffix "png") | or (strings.HasSuffix  $suffix "svg") |or ((strings.HasSuffix  $suffix "gif") )}}
+      {{printf "<a target=\"_blank\" href=\" " | safeHTML }}{{ index $items 1 }}{{printf " \"> " | safeHTML }}
         {{printf "<img " | safeHTML }}
     {{ else if (strings.HasSuffix  $suffix "webm") }}
       {{printf "<video controls " | safeHTML }}
     {{ end }}
           class="pure-img-responsive"
           src="{{ index $items 1 }}"
-          alt="{{ if ge $itemCount 3 }}{{ index $items 2 }}{{ else }}{{ "" }}{{ end }}">
+          alt="{{ if ge $itemCount 3 }}{{ index $items 2 }}{{ else }}{{ "" }}{{ end }}"></a>
     </div>
   </div>
   {{ end }}
