@@ -1,0 +1,3 @@
+{{ if ne .Lastmod .Date }}
+    <p style="text-align: right;">文章於 {{ .Lastmod.Format "2006-01-02 15:04" }} 更新</p>
+{{ end }}
