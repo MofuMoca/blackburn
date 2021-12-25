@@ -52,7 +52,7 @@ article > footer {
 }
 
 #menu {
-  overflow-y: visible;
+  overflow-y: auto;
 }
 
 #menu a {
