@@ -47,12 +47,12 @@
   {{ end }}
 
   {{ with .Site.Params.highlightjs }}
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/{{ . }}.min.css">
-  <script async src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/{{ . }}.min.css">
+  <script  src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
   {{ range $.Site.Params.highlightjs_extra_languages }}
-  <script async src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/languages/{{ . }}.min.js"></script>
+  <script  src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/{{ . }}.min.js"></script>
   {{ end }}
-  <script>hljs.initHighlightingOnLoad();</script>
+  <script>hljs.highlightAll();</script>
   {{ end }}
 
   {{ partial "favicon.html" . }}
