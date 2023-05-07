@@ -9,16 +9,22 @@
   {{ if ge $itemCount 2 }}
   <div class="{{ index $items 0 }}">
     <div style="padding: 0 .2em">
-    {{ $suffix := index $items 1}}
-    {{if (strings.HasSuffix  $suffix "png") | or (strings.HasSuffix  $suffix "svg") |or ((strings.HasSuffix  $suffix "gif") )}}
-      {{printf "<a target=\"_blank\" href=\"" | safeHTML }}{{ index $items 1 }}{{printf " \"> " | safeHTML }}
+      <!-- Get Page Resources from shortcode Params 1 -->
+    {{ $imgsrc := $.Page.Resources.GetMatch (index $items 1) }}
+    <!-- Detect resource MIME main type -->
+    {{ if eq $imgsrc.MediaType.MainType "image" }}
+      {{printf "<a target=\"_blank\" href=\"" | safeHTML }}{{ $imgsrc.Permalink }}{{printf "\"> " | safeHTML }}
         {{printf "<img " | safeHTML }}
-    {{ else if (strings.HasSuffix  $suffix "webm") }}
+    {{ else if eq $imgsrc.MediaType.MainType "viedo" }}
       {{printf "<video controls " | safeHTML }}
     {{ end }}
           class="pure-img-responsive"
-          src="{{ index $items 1 }}"
-          alt="{{ if ge $itemCount 3 }}{{ index $items 2 }}{{ else }}{{ "" }}{{ end }}"></a>
+          <!-- Get resource link to src -->
+          src="{{ $imgsrc.Permalink }}"
+          <!-- Get resource params "alt" to alt(or other is ok) -->
+          alt="{{ $imgsrc.Params.alt }}"
+          >
+        </a>
     </div>
   </div>
   {{ end }}
