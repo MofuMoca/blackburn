@@ -15,7 +15,7 @@
     {{ if eq $imgsrc.MediaType.MainType "image" }}
       {{printf "<a target=\"_blank\" href=\"" | safeHTML }}{{ $imgsrc.Permalink }}{{printf "\"> " | safeHTML }}
         {{printf "<img " | safeHTML }}
-    {{ else if eq $imgsrc.MediaType.MainType "viedo" }}
+    {{ else if eq $imgsrc.MediaType.MainType "video" }}
       {{printf "<video controls " | safeHTML }}
     {{ end }}
           class="pure-img-responsive"
